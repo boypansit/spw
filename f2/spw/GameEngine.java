@@ -70,6 +70,11 @@ public class GameEngine implements KeyListener, GameReporter{
 				gp.sprites.remove(e);
 				score += 20;
 			}
+		Iterator<Coin> c_iter = coins.iterator();
+		while(c_iter.hasNext()){
+			Coin c = c_iter.next();
+			c.proceed();
+			}
 		}
 		
 		gp.updateGameUI(this);

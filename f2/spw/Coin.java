@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 
 public class Coin extends Sprite{
 	
-	private int step = 12;
+	private int step = 5;
 	private boolean collected = false;
 	
 	public Coin(int x, int y) {
