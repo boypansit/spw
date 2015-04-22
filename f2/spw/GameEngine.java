@@ -21,7 +21,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	private Timer timer;
 	
 	private long score = 0;
-	private double difficulty = 0.1;
+	private double difficulty = 0.05;
 	
 	public GameEngine(GamePanel gp, SpaceShip v) {
 		this.gp = gp;
@@ -29,7 +29,7 @@ public class GameEngine implements KeyListener, GameReporter{
 		
 		gp.sprites.add(v);
 		
-		timer = new Timer(50, new ActionListener() {
+		timer = new Timer(40, new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -50,7 +50,7 @@ public class GameEngine implements KeyListener, GameReporter{
 		enemies.add(e);
 	}
 	private void generateCoin(){
-		Coin c = new Coin((int)(Math.random()*390), 30);
+		Coin c = new Coin((int)(Math.random()*350), 35);
 		gp.sprites.add(c);
 		coins.add(c);
 	}

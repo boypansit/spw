@@ -6,11 +6,11 @@ import java.awt.Graphics2D;
 
 public class Coin extends Sprite{
 	
-	private int step = 5;
-	private boolean collected = false;
+	private int step = 10;
+	private boolean collected = true;
 	
 	public Coin(int x, int y) {
-		super(x, y, 10, 10);
+		super(x, y, 8, 10);
 		
 	}
 
