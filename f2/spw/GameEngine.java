@@ -74,6 +74,11 @@ public class GameEngine implements KeyListener, GameReporter{
 		while(c_iter.hasNext()){
 			Coin c = c_iter.next();
 			c.proceed();
+			if(!c.getCollected()){
+				c_iter.remove();
+				gp.sprites.remove(c);
+				System.out.println("deleted");
+			}
 			}
 		}
 		

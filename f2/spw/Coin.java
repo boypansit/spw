@@ -8,7 +8,7 @@ public class Coin extends Sprite{
 	
 	private int step = 10;
 	private boolean collected = true;
-	
+	public static final int Y_TO_DIE = 600;
 	public Coin(int x, int y) {
 		super(x, y, 8, 10);
 		
@@ -23,6 +23,10 @@ public class Coin extends Sprite{
 
 	public void proceed(){
 		y += step;
+		if(y > Y_TO_DIE){
+			collected = false;
+		}
+
 	}
 	
 	public boolean getCollected(){
