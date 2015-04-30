@@ -21,6 +21,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	private Timer timer;
 	
 	private long score = 0;
+	private long score_c = 0;
 	private double difficulty = 0.05;
 	
 	public GameEngine(GamePanel gp, SpaceShip v) {
@@ -77,7 +78,6 @@ public class GameEngine implements KeyListener, GameReporter{
 			if(!c.getCollected()){
 				c_iter.remove();
 				gp.sprites.remove(c);
-				System.out.println("deleted");
 			}
 			}
 		}
@@ -86,11 +86,19 @@ public class GameEngine implements KeyListener, GameReporter{
 		
 		Rectangle2D.Double vr = v.getRectangle();
 		Rectangle2D.Double er;
+		Rectangle2D.Double cr;
 		for(Enemy e : enemies){
 			er = e.getRectangle();
 			if(er.intersects(vr)){
 				die();
 				return;
+			}
+		}
+		for(Coin c : coins){
+			cr = c.getRectangle();
+			if(cr.intersects(vr)){
+				score_c += 20;
+				System.out.println("get coin "+score_c);
 			}
 		}
 	}
