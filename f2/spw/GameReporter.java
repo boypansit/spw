@@ -4,5 +4,5 @@ public interface GameReporter {
 
 	long getScore();
 	long getScoreC();
-
+	boolean getwin();
 }

@@ -16,7 +16,8 @@ public class GameEngine implements KeyListener, GameReporter{
 		
 	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();	
 	private ArrayList<Coin> coins = new ArrayList<Coin>();
-	private SpaceShip v;	
+	private SpaceShip v;
+	private boolean win = false;
 	
 	private Timer timer;
 	
@@ -56,11 +57,14 @@ public class GameEngine implements KeyListener, GameReporter{
 		coins.add(c);
 	}
 	private void process(){
+		if(score_c>=100){
+			win = true;
+			timer.stop();
+		}
 		if(Math.random() < difficulty){
 			generateEnemy();
 			generateCoin();
 		}
-		
 		Iterator<Enemy> e_iter = enemies.iterator();
 		while(e_iter.hasNext()){
 			Enemy e = e_iter.next();
@@ -126,6 +130,9 @@ public class GameEngine implements KeyListener, GameReporter{
 	}
 	public long getScoreC(){
 		return score_c;
+	}
+	public boolean getwin(){
+		return win;
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
