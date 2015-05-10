@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
 public class Coin extends Sprite{
 	
 	private int step = 10;
-	private boolean collected = true;
+	private boolean collected = false;
 	public static final int Y_TO_DIE = 600;
 	public Coin(int x, int y) {
 		super(x, y, 8, 10);
@@ -24,11 +24,13 @@ public class Coin extends Sprite{
 	public void proceed(){
 		y += step;
 		if(y > Y_TO_DIE){
-			collected = false;
+			collected = true;
 		}
 
 	}
-	
+	public void collected(){
+		collected = true;
+	}	
 	public boolean getCollected(){
 		return collected;
 	}

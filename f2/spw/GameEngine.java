@@ -57,7 +57,7 @@ public class GameEngine implements KeyListener, GameReporter{
 		coins.add(c);
 	}
 	private void process(){
-		if(score_c>=100){
+		if(score_c>=200){
 			win = true;
 			timer.stop();
 		}
@@ -79,9 +79,10 @@ public class GameEngine implements KeyListener, GameReporter{
 		while(c_iter.hasNext()){
 			Coin c = c_iter.next();
 			c.proceed();
-			if(!c.getCollected()){
+			if(c.getCollected()){
 				c_iter.remove();
 				gp.sprites.remove(c);
+
 			}
 			}
 		}
@@ -103,6 +104,9 @@ public class GameEngine implements KeyListener, GameReporter{
 			if(cr.intersects(vr)){
 				score_c += 20;
 				System.out.println("get coin "+score_c);
+				c.collected();
+				/*if(c.getCollected())
+					gp.sprites.remove(c);*/
 			}
 		}
 	}
@@ -118,6 +122,7 @@ public class GameEngine implements KeyListener, GameReporter{
 			break;
 		case KeyEvent.VK_RIGHT:
 			v.move(1);
+			System.out.println("ssss");
 			break;
 		case KeyEvent.VK_D:
 			difficulty += 0.1;
